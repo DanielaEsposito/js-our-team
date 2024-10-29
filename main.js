@@ -44,18 +44,18 @@ const ourTeam= [
 const cards=document.getElementById("our-team-grid");
 let cardHtml =``;
 
-ourTeam.forEach((TeamMembers)=>{
+ourTeam.forEach((teamMembers)=>{
     const singleCardMember=`
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card m-2 p-0" style="max-width: 400px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="./img/" class="img-fluid rounded-start" alt="...">
+                                <img src="./img/${teamMembers.image}" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <p class="card-title"></p>
-                                    <p class="card-text"></p>
-                                    <p class="card-text"></p>
+                                    <p class="card-title">${teamMembers.name}</p>
+                                    <p class="card-text">${teamMembers.role}</p>
+                                    <p class="card-text">${teamMembers.email}</p>
                                 </div>
                             </div>
                         </div>
@@ -67,6 +67,7 @@ ourTeam.forEach((TeamMembers)=>{
     
 })
 
+cards.innerHTML= cardHtml;
 
 
 
