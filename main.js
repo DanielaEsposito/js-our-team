@@ -1,4 +1,5 @@
 //! VALORI
+
 const ourTeam= [
     {
         name:"Marco",
@@ -37,9 +38,35 @@ const ourTeam= [
         image:"female3.png"
     }
 ]
+
 //! DATI
+
 const cards=document.getElementById("our-team-grid");
-const cardHtml="";
+let cardHtml =``;
+
+ourTeam.forEach((TeamMembers)=>{
+    const singleCardMember=`
+    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="./img/" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-title"></p>
+                                    <p class="card-text"></p>
+                                    <p class="card-text"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+    `
+    cardHtml +=singleCardMember;
+    console.log(cardHtml);
+    
+})
+
 
 
 
