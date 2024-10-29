@@ -46,20 +46,20 @@ let cardHtml =``;
 
 ourTeam.forEach((teamMembers)=>{
     const singleCardMember=`
-    <div class="card m-2 p-0" style="max-width: 400px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="./img/${teamMembers.image}" class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <p class="card-title">${teamMembers.name}</p>
-                                    <p class="card-text">${teamMembers.role}</p>
-                                    <p class="card-text">${teamMembers.email}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="stylecard card m-3 p-0" style="max-width: 400px;">
+            <div class="row g-0">
+                 <div class="col-md-4">
+                    <img src="./img/${teamMembers.image}" class="img-fluid rounded-start" alt="...">
+                 </div>
+             <div class="col-md-8">
+                 <div class="card-body">
+                    <p class="card-title fw-bold">${teamMembers.name}</p>
+                    <p class="card-text ">${teamMembers.role}</p>
+                    <a href="mailto" class="card-text text-decoration-none">${teamMembers.email}</a>
+                 </div>
+             </div>
+        </div>
+    </div>
 
     `
     cardHtml +=singleCardMember;
