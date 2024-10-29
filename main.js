@@ -1,3 +1,4 @@
+//! VALORI
 const ourTeam= [
     {
         name:"Marco",
@@ -36,4 +37,9 @@ const ourTeam= [
         image:"female3.png"
     }
 ]
+//! DATI
+const cards=document.getElementById("our-team-grid");
+const cardHtml="";
+
+
 
