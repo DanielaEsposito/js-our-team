@@ -40,6 +40,11 @@ const ourTeam= [
 ]
 
 //! DATI
+const inputName =document.getElementById("name")
+const inputRole =document.getElementById("role")
+const inputEmail =document.getElementById("mail")
+const inputImage =document.getElementById("image")
+const inputBtnAdd =document.getElementById("add-members")
 
 const cards=document.getElementById("our-team-grid");
 let cardHtml =``;
@@ -63,11 +68,26 @@ ourTeam.forEach((teamMembers)=>{
 
     `
     cardHtml +=singleCardMember;
-    console.log(cardHtml);
+    //console.log(cardHtml);
     
 })
 
 cards.innerHTML= cardHtml;
+
+inputBtnAdd.addEventListener("click", () => {
+const name =inputName.value;
+const role =inputRole.value;
+const email =inputEmail.value;
+const image =inputImage.value;
+
+const newMember = { name , role , email , image };
+ourTeam.push(newMember);
+
+console.log(ourTeam);
+
+})
+
+
 
 
 
