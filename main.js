@@ -39,40 +39,52 @@ const ourTeam= [
     }
 ]
 
-//! DATI
-const inputName =document.getElementById("name")
-const inputRole =document.getElementById("role")
-const inputEmail =document.getElementById("mail")
-const inputImage =document.getElementById("image")
-const inputBtnAdd =document.getElementById("add-members")
 
-const cards=document.getElementById("our-team-grid");
-let cardHtml =``;
 
-ourTeam.forEach((teamMembers)=>{
-    const singleCardMember=`
+
+
+generateNewCard = (name,role,email,image) => {
+    return`
     <div class="stylecard card m-3 p-0" style="max-width: 400px;">
             <div class="row g-0">
                  <div class="col-md-4">
-                    <img src="./img/${teamMembers.image}" class="img-fluid rounded-start" alt="...">
+                    <img src="./img/${image}" class="img-fluid rounded-start" alt="...">
                  </div>
              <div class="col-md-8">
                  <div class="card-body">
-                    <p class="card-title fw-bold">${teamMembers.name}</p>
-                    <p class="card-text ">${teamMembers.role}</p>
-                    <a href="mailto" class="card-text text-decoration-none">${teamMembers.email}</a>
+                    <p class="card-title fw-bold">${name}</p>
+                    <p class="card-text ">${role}</p>
+                    <a href="mailto" class="card-text text-decoration-none">${email}</a>
                  </div>
              </div>
         </div>
     </div>
 
     `
-    cardHtml +=singleCardMember;
-    //console.log(cardHtml);
-    
-})
 
-cards.innerHTML= cardHtml;
+};
+
+const printNewCardMember=(cards, teamMembers)=>{
+    let cardHtml =``;
+
+    teamMembers.forEach((teamMembers) => {
+        const {name, role, email, image} = teamMembers;
+        const singleCardMember = generateNewCard(name,role,email, image);
+        cardHtml += singleCardMember;
+        //console.log(cardHtml);
+        
+    })
+    cards.innerHTML= cardHtml;
+}
+const cards=document.getElementById("our-team-grid");
+printNewCardMember(cards,ourTeam);
+//! dati input
+const inputName =document.getElementById("name")
+const inputRole =document.getElementById("role")
+const inputEmail =document.getElementById("email")
+const inputImage =document.getElementById("image")
+const inputBtnAdd =document.getElementById("add-members")
+
 
 inputBtnAdd.addEventListener("click", () => {
 const name =inputName.value;
@@ -81,9 +93,13 @@ const email =inputEmail.value;
 const image =inputImage.value;
 
 const newMember = { name , role , email , image };
+
 ourTeam.push(newMember);
 
-console.log(ourTeam);
+printNewCardMember(cards,ourTeam);
+
+
+//console.log(ourTeam);
 
 })
 
